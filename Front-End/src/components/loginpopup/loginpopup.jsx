@@ -18,6 +18,10 @@ const loginpopup = ({setshowlogin}) => {
       setdata(data=>({...data,[name]:value}))
     }
     const onLoign = async (event)=>{
+      if (data.password.length < 8) {
+        alert("Password must be at least 8 characters long");
+        return; // Stop the form submission
+      }
       event.preventDefault();
       let newurl = url;
       if(currentstate === "Login"){
